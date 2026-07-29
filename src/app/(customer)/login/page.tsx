@@ -272,7 +272,7 @@ export default function LoginPage() {
                     </div>
 
                     <Link
-                        href="/menu"
+                        href="/"
                         className="block w-full border border-black py-3.5 text-center text-xs tracking-[0.2em] uppercase transition-colors duration-300 hover:bg-black hover:text-white"
                     >
                         Continue as Customer
