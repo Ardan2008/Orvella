@@ -9,7 +9,7 @@ import { User, Lock, Eye, EyeOff, ArrowLeft } from "lucide-react";
 export default function LoginPage() {
     const router = useRouter();
     const [showPassword, setShowPassword] = useState(false);
-    
+
     // Form Inputs
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -129,6 +129,16 @@ export default function LoginPage() {
         }, 1500); // 1.5 seconds loading duration
     };
 
+    // Continue as Customer — reuses the exact same lazy loading overlay
+    // as Sign In, then always navigates to "/" (no credentials to check).
+    const handleContinueAsCustomer = () => {
+        setIsLoading(true);
+
+        setTimeout(() => {
+            router.push("/");
+        }, 1500); // same duration as the Sign In flow, for a consistent feel
+    };
+
     return (
         <main className="relative min-h-screen bg-white text-black md:grid md:grid-cols-2">
 
@@ -191,11 +201,11 @@ export default function LoginPage() {
                                     ? "border-red-500 focus-within:border-red-600"
                                     : "border-black/20 focus-within:border-black"
                             }`}>
-                                <User 
-                                    strokeWidth={1.5} 
+                                <User
+                                    strokeWidth={1.5}
                                     className={`h-4 w-4 shrink-0 transition-colors ${
                                         usernameError && usernameTouched ? "text-red-500" : "text-black/40"
-                                    }`} 
+                                    }`}
                                 />
                                 <input
                                     type="text"
@@ -220,11 +230,11 @@ export default function LoginPage() {
                                     ? "border-red-500 focus-within:border-red-600"
                                     : "border-black/20 focus-within:border-black"
                             }`}>
-                                <Lock 
-                                    strokeWidth={1.5} 
+                                <Lock
+                                    strokeWidth={1.5}
                                     className={`h-4 w-4 shrink-0 transition-colors ${
                                         passwordError && passwordTouched ? "text-red-500" : "text-black/40"
-                                    }`} 
+                                    }`}
                                 />
                                 <input
                                     type={showPassword ? "text" : "password"}
@@ -271,12 +281,13 @@ export default function LoginPage() {
                         <span className="h-px flex-1 bg-black/20" />
                     </div>
 
-                    <Link
-                        href="/"
-                        className="block w-full border border-black py-3.5 text-center text-xs tracking-[0.2em] uppercase transition-colors duration-300 hover:bg-black hover:text-white"
+                    <button
+                        type="button"
+                        onClick={handleContinueAsCustomer}
+                        className="block w-full border border-black py-3.5 text-center text-xs tracking-[0.2em] uppercase transition-colors duration-300 hover:bg-black hover:text-white cursor-pointer"
                     >
                         Continue as Customer
-                    </Link>
+                    </button>
                 </div>
             </div>
 
@@ -331,36 +342,27 @@ export default function LoginPage() {
                 </div>
             )}
 
-            {/* Lazy Loading Overlay */}
+            {/* Lazy Loading Overlay — shared by both Sign In and Continue as Customer.
+                Fresh, minimal dual-ring spinner. Same black/white palette as before,
+                no coffee imagery. */}
             {isLoading && (
                 <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white/95 backdrop-blur-sm transition-opacity duration-300">
-                    <div className="relative flex flex-col items-center gap-7">
+                    <div className="relative flex flex-col items-center gap-8">
 
-                        {/* Cup with rising liquid + steam — replaces the generic spinner */}
-                        <div className="relative h-20 w-16">
-                            {/* Steam wisps */}
-                            <div className="absolute -top-6 left-1/2 -translate-x-1/2 flex gap-2">
-                                <span className="steam-wisp h-4 w-[3px] rounded-full bg-black/20" style={{ animationDelay: "0ms" }} />
-                                <span className="steam-wisp h-5 w-[3px] rounded-full bg-black/25" style={{ animationDelay: "420ms" }} />
-                                <span className="steam-wisp h-4 w-[3px] rounded-full bg-black/20" style={{ animationDelay: "840ms" }} />
+                        {/* Dual-ring spinner with a breathing center dot */}
+                        <div className="relative h-16 w-16">
+                            <div className="absolute inset-0 rounded-full border-[3px] border-black/10" />
+                            <div className="spin-cw absolute inset-0 rounded-full border-[3px] border-transparent border-t-black border-r-black" />
+                            <div className="spin-ccw absolute inset-[6px] rounded-full border-2 border-transparent border-b-black/40" />
+                            <div className="absolute inset-0 flex items-center justify-center">
+                                <span className="pulse-dot h-2 w-2 rounded-full bg-black" />
                             </div>
-
-                            {/* Cup outline */}
-                            <div className="absolute inset-0 overflow-hidden rounded-b-2xl rounded-t-md border-[3px] border-black">
-                                <div className="brew-fill absolute inset-x-0 bottom-0 bg-black" />
-                            </div>
-
-                            {/* Handle */}
-                            <div className="absolute right-[-11px] top-1/3 h-6 w-4 rounded-r-full border-[3px] border-l-0 border-black" />
                         </div>
 
                         {/* Text */}
                         <div className="flex flex-col items-center gap-2">
-                            <span className="text-[10px] tracking-[0.35em] uppercase text-black/30">
+                            <span className="text-[10px] tracking-[0.35em] uppercase text-black">
                                 Orvella
-                            </span>
-                            <span className="font-serif text-xl italic text-black">
-                                Brewing your dashboard
                             </span>
                         </div>
 
@@ -371,36 +373,36 @@ export default function LoginPage() {
                     </div>
 
                     <style jsx>{`
-                        @keyframes brewFill {
-                            0% {
-                                height: 6%;
-                            }
-                            50% {
-                                height: 78%;
-                            }
-                            100% {
-                                height: 6%;
+                        @keyframes spinCW {
+                            to {
+                                transform: rotate(360deg);
                             }
                         }
-                        .brew-fill {
-                            animation: brewFill 3.6s cubic-bezier(0.45, 0, 0.15, 1) infinite;
+                        .spin-cw {
+                            animation: spinCW 1s linear infinite;
                         }
 
-                        @keyframes steamRise {
-                            0% {
-                                transform: translateY(0) scaleY(0.6);
-                                opacity: 0;
-                            }
-                            35% {
-                                opacity: 0.7;
-                            }
-                            100% {
-                                transform: translateY(-16px) scaleY(1.3);
-                                opacity: 0;
+                        @keyframes spinCCW {
+                            to {
+                                transform: rotate(-360deg);
                             }
                         }
-                        .steam-wisp {
-                            animation: steamRise 2.8s ease-out infinite;
+                        .spin-ccw {
+                            animation: spinCCW 1.6s linear infinite;
+                        }
+
+                        @keyframes pulseDot {
+                            0%, 100% {
+                                transform: scale(0.85);
+                                opacity: 0.6;
+                            }
+                            50% {
+                                transform: scale(1.25);
+                                opacity: 1;
+                            }
+                        }
+                        .pulse-dot {
+                            animation: pulseDot 1.1s ease-in-out infinite;
                         }
 
                         @keyframes progressSlide {

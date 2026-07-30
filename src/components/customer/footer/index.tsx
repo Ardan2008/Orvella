@@ -1,7 +1,14 @@
 "use client";
 
+import Image from "next/image";
 import { MapPin, Phone, Mail } from "lucide-react";
 import { BlurReveal } from "@/components/ui/blur-reveal";
+import {
+  HoverCard,
+  HoverCardTrigger,
+  HoverCardContent,
+} from "@/components/animate-ui/components/radix/hover-card";
+
 
 // Nomor wa
 const message = encodeURIComponent(
@@ -135,24 +142,245 @@ const Footer = () => {
                             Follow Us
                         </h3>
                         <div className="mt-5 flex items-center gap-3">
-                            <a
-                                href="https://instagram.com/orvellacoffee"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="Instagram"
-                                className="h-10 w-10 flex items-center justify-center rounded-full border border-black/30 text-black/70 transition-colors duration-300 hover:bg-black hover:text-white"
-                            >
-                                <InstagramIcon className="h-4 w-4" />
-                            </a>
-                            <a
-                                href="https://tiktok.com/@orvellacoffee"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="TikTok"
-                                className="h-10 w-10 flex items-center justify-center rounded-full border border-black/30 text-black/70 transition-colors duration-300 hover:bg-black hover:text-white"
-                            >
-                                <TiktokIcon className="h-4 w-4" />
-                            </a>
+                            {/* Instagram HoverCard */}
+                            <HoverCard>
+                                <HoverCardTrigger asChild>
+                                    <a
+                                        href="https://instagram.com/orvellacoffee"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="Instagram"
+                                        className="h-10 w-10 flex items-center justify-center rounded-full border border-black/30 text-black/70 transition-colors duration-300 hover:bg-black hover:text-white"
+                                    >
+                                        <InstagramIcon className="h-4 w-4" />
+                                    </a>
+                                </HoverCardTrigger>
+                                <HoverCardContent
+                                    side="top"
+                                    align="center"
+                                    className="w-80 p-5 rounded-2xl border border-black/10 bg-white/95 backdrop-blur-md shadow-2xl text-black"
+                                >
+                                    <div className="flex flex-col gap-4">
+                                        {/* Header */}
+                                        <div className="flex justify-between items-start">
+                                            <div className="flex gap-3 items-center">
+                                                <div className="h-12 w-12 rounded-full bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 p-[2px] shadow-sm flex items-center justify-center">
+                                                    <div className="relative bg-white p-[1px] rounded-full h-full w-full overflow-hidden">
+                                                        <Image
+                                                            src="/icon.png"
+                                                            alt="Orvella Coffee"
+                                                            fill
+                                                            className="rounded-full object-cover"
+                                                            sizes="48px"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <h4 className="font-bold text-sm leading-tight text-black flex items-center gap-1">
+                                                        Orvella Coffee
+                                                        <span className="inline-block w-3.5 h-3.5 bg-sky-500 text-white rounded-full flex items-center justify-center text-[8px] font-extrabold">✓</span>
+                                                    </h4>
+                                                    <span className="text-xs text-black/50">@orvellacoffee</span>
+                                                </div>
+                                            </div>
+                                            <a 
+                                                href="https://instagram.com/orvellacoffee"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="bg-[#0095f6] hover:bg-[#1877f2] text-white text-xs font-semibold px-3 py-1.5 rounded-lg transition-all duration-200"
+                                            >
+                                                Follow
+                                            </a>
+                                        </div>
+
+                                        {/* Bio */}
+                                        <p className="text-xs text-black/80 leading-relaxed text-left">
+                                            ☕ Crafting cozy moments & premium brews in Malang. Share your story with <span className="text-sky-600">#OrvellaMoment</span>
+                                        </p>
+
+                                        {/* Stats */}
+                                        <div className="flex gap-5 border-t border-b border-black/5 py-2">
+                                            <div className="text-xs flex gap-1">
+                                                <span className="font-bold text-black">142</span>
+                                                <span className="text-black/50">posts</span>
+                                            </div>
+                                            <div className="text-xs flex gap-1">
+                                                <span className="font-bold text-black">12.4K</span>
+                                                <span className="text-black/50">followers</span>
+                                            </div>
+                                            <div className="text-xs flex gap-1">
+                                                <span className="font-bold text-black">320</span>
+                                                <span className="text-black/50">following</span>
+                                            </div>
+                                        </div>
+
+                                        {/* Recent Posts */}
+                                        <div className="flex flex-col gap-1.5">
+                                            <span className="text-[10px] text-left uppercase tracking-wider text-black/40 font-semibold">Recent Posts</span>
+                                            <div className="grid grid-cols-3 gap-2">
+                                                <div className="aspect-square rounded-lg overflow-hidden border border-black/5 relative group cursor-pointer">
+                                                    <Image
+                                                        src="/gallery/product.png"
+                                                        alt="Product"
+                                                        fill
+                                                        className="object-cover transition-transform duration-300 group-hover:scale-110"
+                                                        sizes="(max-width: 768px) 33vw, 100px"
+                                                    />
+                                                    <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                                </div>
+                                                <div className="aspect-square rounded-lg overflow-hidden border border-black/5 relative group cursor-pointer">
+                                                    <Image
+                                                        src="/gallery/brewing.png"
+                                                        alt="Brewing"
+                                                        fill
+                                                        className="object-cover transition-transform duration-300 group-hover:scale-110"
+                                                        sizes="(max-width: 768px) 33vw, 100px"
+                                                    />
+                                                    <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                                </div>
+                                                <div className="aspect-square rounded-lg overflow-hidden border border-black/5 relative group cursor-pointer">
+                                                    <Image
+                                                        src="/gallery/interior.png"
+                                                        alt="Interior"
+                                                        fill
+                                                        className="object-cover transition-transform duration-300 group-hover:scale-110"
+                                                        sizes="(max-width: 768px) 33vw, 100px"
+                                                    />
+                                                    <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </HoverCardContent>
+                            </HoverCard>
+
+                            {/* TikTok HoverCard */}
+                            <HoverCard>
+                                <HoverCardTrigger asChild>
+                                    <a
+                                        href="https://tiktok.com/@orvellacoffee"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="TikTok"
+                                        className="h-10 w-10 flex items-center justify-center rounded-full border border-black/30 text-black/70 transition-colors duration-300 hover:bg-black hover:text-white"
+                                    >
+                                        <TiktokIcon className="h-4 w-4" />
+                                    </a>
+                                </HoverCardTrigger>
+                                <HoverCardContent
+                                    side="top"
+                                    align="center"
+                                    className="w-80 p-5 rounded-2xl border border-black/10 bg-white/95 backdrop-blur-md shadow-2xl text-black"
+                                >
+                                    <div className="flex flex-col gap-4">
+                                        {/* Header */}
+                                        <div className="flex justify-between items-start">
+                                            <div className="flex gap-3 items-center">
+                                                <div className="h-12 w-12 rounded-full p-[2px] flex items-center justify-center bg-black relative shadow-[1px_1.5px_0px_#00f2fe,-1px_-1.5px_0px_#fe0979] overflow-hidden">
+                                                    <Image
+                                                        src="/icon.png"
+                                                        alt="Orvella Coffee"
+                                                        fill
+                                                        className="rounded-full object-cover border border-white/20"
+                                                        sizes="48px"
+                                                    />
+                                                </div>
+                                                <div>
+                                                    <h4 className="font-bold text-sm leading-tight text-black flex items-center gap-1">
+                                                        Orvella Coffee
+                                                        <span className="inline-block w-3.5 h-3.5 bg-sky-500 text-white rounded-full flex items-center justify-center text-[8px] font-extrabold">✓</span>
+                                                    </h4>
+                                                    <span className="text-xs text-black/50">@orvellacoffee</span>
+                                                </div>
+                                            </div>
+                                            <a 
+                                                href="https://tiktok.com/@orvellacoffee"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="bg-[#fe2c55] hover:bg-[#e02447] text-white text-xs font-semibold px-3 py-1.5 rounded-lg transition-all duration-200"
+                                            >
+                                                Follow
+                                            </a>
+                                        </div>
+
+                                        {/* Bio */}
+                                        <p className="text-xs text-black/80 leading-relaxed text-left">
+                                            🎥 Behind the scenes, barista tips & satisfying coffee pours at Orvella Coffee. Follow for your daily dose of brew!
+                                        </p>
+
+                                        {/* Stats */}
+                                        <div className="flex gap-5 border-t border-b border-black/5 py-2">
+                                            <div className="text-xs flex gap-1">
+                                                <span className="font-bold text-black">15</span>
+                                                <span className="text-black/50">following</span>
+                                            </div>
+                                            <div className="text-xs flex gap-1">
+                                                <span className="font-bold text-black">45.2K</span>
+                                                <span className="text-black/50">followers</span>
+                                            </div>
+                                            <div className="text-xs flex gap-1">
+                                                <span className="font-bold text-black">128.5K</span>
+                                                <span className="text-black/50">likes</span>
+                                            </div>
+                                        </div>
+
+                                        {/* Recent Videos */}
+                                        <div className="flex flex-col gap-1.5">
+                                            <span className="text-[10px] text-left uppercase tracking-wider text-black/40 font-semibold">Latest Videos</span>
+                                            <div className="grid grid-cols-3 gap-2">
+                                                <div className="aspect-[3/4] rounded-lg overflow-hidden border border-black/5 relative group cursor-pointer">
+                                                    <Image
+                                                        src="/gallery/barista.png"
+                                                        alt="Barista Video"
+                                                        fill
+                                                        className="object-cover transition-transform duration-300 group-hover:scale-110"
+                                                        sizes="(max-width: 768px) 33vw, 100px"
+                                                    />
+                                                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                                    <div className="absolute bottom-1 left-1.5 flex items-center gap-0.5 text-[9px] font-semibold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                                                        <svg className="w-2.5 h-2.5 fill-current" viewBox="0 0 24 24">
+                                                            <path d="M8 5v14l11-7z"/>
+                                                        </svg>
+                                                        <span>84.2K</span>
+                                                    </div>
+                                                </div>
+                                                <div className="aspect-[3/4] rounded-lg overflow-hidden border border-black/5 relative group cursor-pointer">
+                                                    <Image
+                                                        src="/gallery/brewing.png"
+                                                        alt="Brewing Video"
+                                                        fill
+                                                        className="object-cover transition-transform duration-300 group-hover:scale-110"
+                                                        sizes="(max-width: 768px) 33vw, 100px"
+                                                    />
+                                                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                                    <div className="absolute bottom-1 left-1.5 flex items-center gap-0.5 text-[9px] font-semibold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                                                        <svg className="w-2.5 h-2.5 fill-current" viewBox="0 0 24 24">
+                                                            <path d="M8 5v14l11-7z"/>
+                                                        </svg>
+                                                        <span>53.1K</span>
+                                                    </div>
+                                                </div>
+                                                <div className="aspect-[3/4] rounded-lg overflow-hidden border border-black/5 relative group cursor-pointer">
+                                                    <Image
+                                                        src="/gallery/product.png"
+                                                        alt="Product Video"
+                                                        fill
+                                                        className="object-cover transition-transform duration-300 group-hover:scale-110"
+                                                        sizes="(max-width: 768px) 33vw, 100px"
+                                                    />
+                                                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                                    <div className="absolute bottom-1 left-1.5 flex items-center gap-0.5 text-[9px] font-semibold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                                                        <svg className="w-2.5 h-2.5 fill-current" viewBox="0 0 24 24">
+                                                            <path d="M8 5v14l11-7z"/>
+                                                        </svg>
+                                                        <span>121.7K</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </HoverCardContent>
+                            </HoverCard>
                         </div>
                     </div>
                 </div>
