@@ -9,7 +9,7 @@ const About = () => {
 
                     {/* Sisi Gambar */}
                     <div className="group relative mx-auto max-w-sm md:max-w-none">
-                        <div className="relative aspect-[4/5] overflow-hidden rounded-full border border-black/10 shadow-[0_0_0_1px_rgba(0,0,0,0.03)]">
+                        <div className="relative aspect-4/5 overflow-hidden rounded-full border border-black/10 shadow-[0_0_0_1px_rgba(0,0,0,0.03)]">
                             <Image
                                 src="/about/about.png"
                                 alt="Suasana Orvella Coffee"

@@ -151,7 +151,7 @@ export default function LoginPage() {
                     className="object-cover grayscale contrast-125 opacity-70"
                     priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/10" />
+                <div className="absolute inset-0 bg-linear-to-t from-black via-black/40 to-black/10" />
 
                 <div className="relative flex h-full flex-col justify-between p-12">
                     <Link
@@ -353,7 +353,7 @@ export default function LoginPage() {
                         <div className="relative h-16 w-16">
                             <div className="absolute inset-0 rounded-full border-[3px] border-black/10" />
                             <div className="spin-cw absolute inset-0 rounded-full border-[3px] border-transparent border-t-black border-r-black" />
-                            <div className="spin-ccw absolute inset-[6px] rounded-full border-2 border-transparent border-b-black/40" />
+                            <div className="spin-ccw absolute inset-1.5 rounded-full border-2 border-transparent border-b-black/40" />
                             <div className="absolute inset-0 flex items-center justify-center">
                                 <span className="pulse-dot h-2 w-2 rounded-full bg-black" />
                             </div>

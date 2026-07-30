@@ -11,7 +11,7 @@ const Hero = () => {
             <span
                 aria-hidden="true"
                 className="pointer-events-none select-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-                text-[20vw] md:text-[16vw] font-black tracking-tighter text-black/[0.03] whitespace-nowrap z-0"
+                text-[20vw] md:text-[16vw] font-black tracking-tighter text-black/3 whitespace-nowrap z-0"
             >
                 ORVELLA
             </span>
@@ -26,13 +26,13 @@ const Hero = () => {
                 </h1>
 
                 <div className="order-1 md:order-2 relative flex justify-center shrink-0">
-                    <div aria-hidden="true" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] sm:w-[260px] md:w-[320px] lg:w-[380px] aspect-square rounded-full bg-black/10 blur-3xl" />
+                    <div aria-hidden="true" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-50 sm:w-65 md:w-[320px] lg:w-95 aspect-square rounded-full bg-black/10 blur-3xl" />
                     <Image
                         src={PRODUCT_IMAGE_SRC}
                         alt={PRODUCT_IMAGE_ALT}
                         width={900}
                         height={1125}
-                        className="object-contain drop-shadow-2xl w-[280px] sm:w-[360px] md:w-[440px] lg:w-[520px] h-auto"
+                        className="object-contain drop-shadow-2xl w-70 sm:w-90 md:w-110 lg:w-130 h-auto"
                         priority
                     />
                 </div>

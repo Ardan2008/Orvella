@@ -47,7 +47,7 @@ const Gallery = () => {
                 </div>
 
                 {/* Bento grid */}
-                <div className="mt-16 grid grid-cols-2 md:grid-cols-4 auto-rows-[160px] md:auto-rows-[200px] gap-2">
+                <div className="mt-16 grid grid-cols-2 md:grid-cols-4 auto-rows-40 md:auto-rows-50 gap-2">
                     {items.map(({ title, src, className, sizes }) => (
                         <div
                             key={title}
@@ -60,7 +60,7 @@ const Gallery = () => {
                                 sizes={sizes}
                                 className="object-cover grayscale contrast-125 transition-all duration-500 ease-out group-hover:grayscale-0 group-hover:scale-105"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-black/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                            <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/0 to-black/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                             <span className="absolute bottom-4 left-4 text-xs tracking-[0.2em] uppercase text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                                 {title}
                             </span>

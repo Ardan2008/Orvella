@@ -2,7 +2,7 @@ import { InfiniteRibbon } from "@/components/ui/infinite-ribbon"
 
 export default function InfiniteRibbonDemo() {
   return (
-    <div className="relative flex h-[280px] w-full items-center justify-center overflow-hidden bg-white py-8">
+    <div className="relative flex h-70 w-full items-center justify-center overflow-hidden bg-white py-8">
       <InfiniteRibbon 
         rotation={3} 
         className="absolute w-[120%] bg-black text-white uppercase font-bold text-xs tracking-[0.2em] py-3 border-y border-white/10"

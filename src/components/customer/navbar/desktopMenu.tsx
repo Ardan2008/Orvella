@@ -16,7 +16,7 @@ const DesktopMenu = () => {
           transition-all duration-200 active:scale-95
         "
       >
-          <span className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent pointer-events-none rounded-t-full" />
+          <span className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-white/30 to-transparent pointer-events-none rounded-t-full" />
 
           <span>Login</span>
 

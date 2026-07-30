@@ -65,8 +65,8 @@ function TestimonialCard({ item }: { item: (typeof items)[number] }) {
 export function MarqueeDemo() {
   return (
     <div className="relative w-full overflow-hidden">
-      <div className="from-background absolute inset-y-0 left-0 z-10 w-30 bg-gradient-to-r to-transparent" />
-      <div className="from-background absolute inset-y-0 right-0 z-10 w-30 bg-gradient-to-l to-transparent" />
+      <div className="from-background absolute inset-y-0 left-0 z-10 w-30 bg-linear-to-r to-transparent" />
+      <div className="from-background absolute inset-y-0 right-0 z-10 w-30 bg-linear-to-l to-transparent" />
       <Marquee className="py-2" direction="left">
         {[...items, ...items].map((item, index) => (
           <TestimonialCard key={index} item={item} />

@@ -75,7 +75,7 @@ const Footer = () => {
                     {/* Brand */}
                     <div>
                         <h3 className="font-serif text-2xl italic">Orvella</h3>
-                        <p className="mt-4 text-sm text-black/70 leading-relaxed max-w-[220px]">
+                        <p className="mt-4 text-sm text-black/70 leading-relaxed max-w-55">
                             From bean to cup, every detail is crafted so a
                             coffee break feels like coming home.
                         </p>
@@ -125,11 +125,11 @@ const Footer = () => {
                             Opening Hours
                         </h3>
                         <ul className="mt-5 space-y-2 text-sm text-black/80">
-                            <li className="flex justify-between max-w-[200px]">
+                            <li className="flex justify-between max-w-50">
                                 <span className="text-black/60">Mon – Fri</span>
                                 <span>08:00 – 22:00</span>
                             </li>
-                            <li className="flex justify-between max-w-[200px]">
+                            <li className="flex justify-between max-w-50">
                                 <span className="text-black/60">Sat – Sun</span>
                                 <span>09:00 – 23:00</span>
                             </li>
@@ -164,8 +164,8 @@ const Footer = () => {
                                         {/* Header */}
                                         <div className="flex justify-between items-start">
                                             <div className="flex gap-3 items-center">
-                                                <div className="h-12 w-12 rounded-full bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 p-[2px] shadow-sm flex items-center justify-center">
-                                                    <div className="relative bg-white p-[1px] rounded-full h-full w-full overflow-hidden">
+                                                <div className="h-12 w-12 rounded-full bg-linear-to-tr from-amber-500 via-rose-500 to-purple-600 p-0.5 shadow-sm flex items-center justify-center">
+                                                    <div className="relative bg-white p-px rounded-full h-full w-full overflow-hidden">
                                                         <Image
                                                             src="/icon.png"
                                                             alt="Orvella Coffee"
@@ -178,7 +178,7 @@ const Footer = () => {
                                                 <div>
                                                     <h4 className="font-bold text-sm leading-tight text-black flex items-center gap-1">
                                                         Orvella Coffee
-                                                        <span className="inline-block w-3.5 h-3.5 bg-sky-500 text-white rounded-full flex items-center justify-center text-[8px] font-extrabold">✓</span>
+                                                        <span className="w-3.5 h-3.5 bg-sky-500 text-white rounded-full flex items-center justify-center text-[8px] font-extrabold">✓</span>
                                                     </h4>
                                                     <span className="text-xs text-black/50">@orvellacoffee</span>
                                                 </div>
@@ -276,7 +276,7 @@ const Footer = () => {
                                         {/* Header */}
                                         <div className="flex justify-between items-start">
                                             <div className="flex gap-3 items-center">
-                                                <div className="h-12 w-12 rounded-full p-[2px] flex items-center justify-center bg-black relative shadow-[1px_1.5px_0px_#00f2fe,-1px_-1.5px_0px_#fe0979] overflow-hidden">
+                                                <div className="h-12 w-12 rounded-full p-0.5 flex items-center justify-center bg-black relative shadow-[1px_1.5px_0px_#00f2fe,-1px_-1.5px_0px_#fe0979] overflow-hidden">
                                                     <Image
                                                         src="/icon.png"
                                                         alt="Orvella Coffee"
@@ -288,7 +288,7 @@ const Footer = () => {
                                                 <div>
                                                     <h4 className="font-bold text-sm leading-tight text-black flex items-center gap-1">
                                                         Orvella Coffee
-                                                        <span className="inline-block w-3.5 h-3.5 bg-sky-500 text-white rounded-full flex items-center justify-center text-[8px] font-extrabold">✓</span>
+                                                        <span className="w-3.5 h-3.5 bg-sky-500 text-white rounded-full flex items-center justify-center text-[8px] font-extrabold">✓</span>
                                                     </h4>
                                                     <span className="text-xs text-black/50">@orvellacoffee</span>
                                                 </div>
@@ -328,7 +328,7 @@ const Footer = () => {
                                         <div className="flex flex-col gap-1.5">
                                             <span className="text-[10px] text-left uppercase tracking-wider text-black/40 font-semibold">Latest Videos</span>
                                             <div className="grid grid-cols-3 gap-2">
-                                                <div className="aspect-[3/4] rounded-lg overflow-hidden border border-black/5 relative group cursor-pointer">
+                                                <div className="aspect-3/4 rounded-lg overflow-hidden border border-black/5 relative group cursor-pointer">
                                                     <Image
                                                         src="/gallery/barista.png"
                                                         alt="Barista Video"
@@ -344,7 +344,7 @@ const Footer = () => {
                                                         <span>84.2K</span>
                                                     </div>
                                                 </div>
-                                                <div className="aspect-[3/4] rounded-lg overflow-hidden border border-black/5 relative group cursor-pointer">
+                                                <div className="aspect-3/4 rounded-lg overflow-hidden border border-black/5 relative group cursor-pointer">
                                                     <Image
                                                         src="/gallery/brewing.png"
                                                         alt="Brewing Video"
@@ -360,7 +360,7 @@ const Footer = () => {
                                                         <span>53.1K</span>
                                                     </div>
                                                 </div>
-                                                <div className="aspect-[3/4] rounded-lg overflow-hidden border border-black/5 relative group cursor-pointer">
+                                                <div className="aspect-3/4 rounded-lg overflow-hidden border border-black/5 relative group cursor-pointer">
                                                     <Image
                                                         src="/gallery/product.png"
                                                         alt="Product Video"
