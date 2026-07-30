@@ -167,7 +167,7 @@ const Footer = () => {
                                                 <div className="h-12 w-12 rounded-full bg-linear-to-tr from-amber-500 via-rose-500 to-purple-600 p-0.5 shadow-sm flex items-center justify-center">
                                                     <div className="relative bg-white p-px rounded-full h-full w-full overflow-hidden">
                                                         <Image
-                                                            src="/icon.png"
+                                                            src="/logo.png"
                                                             alt="Orvella Coffee"
                                                             fill
                                                             className="rounded-full object-cover"
@@ -278,7 +278,7 @@ const Footer = () => {
                                             <div className="flex gap-3 items-center">
                                                 <div className="h-12 w-12 rounded-full p-0.5 flex items-center justify-center bg-black relative shadow-[1px_1.5px_0px_#00f2fe,-1px_-1.5px_0px_#fe0979] overflow-hidden">
                                                     <Image
-                                                        src="/icon.png"
+                                                        src="/logo.png"
                                                         alt="Orvella Coffee"
                                                         fill
                                                         className="rounded-full object-cover border border-white/20"

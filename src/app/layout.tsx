@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   description:
     "Experience the finest coffee at Orvella. Discover premium coffee with a unique taste.",
   icons: {
-    icon: "/icon.png",
+    icon: "/logo.png",
   },
 };
 
