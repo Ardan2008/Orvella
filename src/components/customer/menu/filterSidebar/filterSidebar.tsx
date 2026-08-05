@@ -61,7 +61,7 @@ const FilterSidebar = ({
                         className={`reset-btn group relative inline-flex items-center justify-center h-9 w-9 rounded-full border transition-all duration-300 cursor-pointer ${
                             isSpinning
                                 ? "border-black bg-black text-white shadow-[0_0_0_1px_rgba(0,0,0,0.05),0_6px_16px_-4px_rgba(0,0,0,0.35)]"
-                                : "border-black/10 text-black/50 hover:border-black hover:text-black hover:bg-black/[0.03] hover:shadow-[0_4px_12px_-4px_rgba(0,0,0,0.15)]"
+                                : "border-black/10 text-black/50 hover:border-black hover:text-black hover:bg-black/3 hover:shadow-[0_4px_12px_-4px_rgba(0,0,0,0.15)]"
                         }`}
                     >
                         {isSpinning && (
@@ -95,7 +95,7 @@ const FilterSidebar = ({
                                     className={`px-3.5 py-2 rounded-full text-xs font-medium transition-all duration-200 cursor-pointer ${
                                         isActive
                                             ? "bg-black text-white shadow-sm"
-                                            : "bg-black/[0.03] text-black/60 hover:bg-black/[0.07] hover:text-black"
+                                            : "bg-black/3 text-black/60 hover:bg-black/[0.07] hover:text-black"
                                     }`}
                                 >
                                     {cat.label}
@@ -106,7 +106,7 @@ const FilterSidebar = ({
                 </div>
 
                 {/* Divider */}
-                <div className="h-px bg-black/[0.06] my-7" />
+                <div className="h-px bg-black/6 my-7" />
 
                 {/* Price */}
                 <div>
@@ -124,7 +124,7 @@ const FilterSidebar = ({
                                     className={`px-3.5 py-2 rounded-full text-xs font-medium transition-all duration-200 cursor-pointer ${
                                         isActive
                                             ? "bg-black text-white shadow-sm"
-                                            : "bg-black/[0.03] text-black/60 hover:bg-black/[0.07] hover:text-black"
+                                            : "bg-black/3 text-black/60 hover:bg-black/[0.07] hover:text-black"
                                     }`}
                                 >
                                     {range.label}
@@ -138,13 +138,10 @@ const FilterSidebar = ({
             <style jsx>{`
                 @keyframes spinOnce {
                     from {
-                        transform: rotate(0deg) scale(1);
-                    }
-                    50% {
-                        transform: rotate(-360deg) scale(1.15);
+                        transform: rotate(0deg);
                     }
                     to {
-                        transform: rotate(-720deg) scale(1);
+                        transform: rotate(-720deg);
                     }
                 }
                 .spin-once {

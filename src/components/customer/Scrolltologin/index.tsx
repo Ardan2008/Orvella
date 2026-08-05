@@ -123,7 +123,7 @@ const ScrollToLogin = () => {
                             leaving ? "opacity-100" : "opacity-0"
                         }`}
                         style={{
-                            boxShadow: "inset 0 0 220px 100px rgba(255,255,255,0.95)",
+                            boxShadow: "inset 0 0 220px 100px rgba(250,250,249,0.95)",
                         }}
                     />
 

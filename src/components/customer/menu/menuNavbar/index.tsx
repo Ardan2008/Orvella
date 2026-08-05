@@ -6,7 +6,7 @@ import MobileMenu from "@/components/customer/menu/menuNavbar/mobileMenu";
 
 const Navbar = () => {
   return (
-    <nav className="relative z-50 flex border-b justify-between items-center gap-4 py-4 px-6 w-full">
+    <nav className="relative z-50 flex border-b bg-[#FAFAF9] justify-between items-center gap-4 py-4 px-6 w-full">
       <Logo />
       <DekstopMenu />
       <MobileMenu />

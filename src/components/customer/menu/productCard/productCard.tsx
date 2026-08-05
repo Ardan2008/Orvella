@@ -14,7 +14,7 @@ const ProductCard = ({ product }: { product: Product }) => {
     return (
         <div className="group rounded-3xl border border-black/10 bg-white overflow-hidden transition-all duration-300 ease-out hover:shadow-[0_16px_40px_rgba(0,0,0,0.09)] hover:-translate-y-1">
             {/* Photo */}
-            <div className="relative aspect-square overflow-hidden bg-black/[0.03]">
+            <div className="relative aspect-square overflow-hidden bg-black/3">
                 {!imageError ? (
                     <Image
                         src={product.image}

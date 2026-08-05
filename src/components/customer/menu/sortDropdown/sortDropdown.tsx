@@ -68,7 +68,7 @@ const SortDropdown = ({ value, onChange }: SortDropdownProps) => {
                         className={`w-full text-left px-3.5 py-2.5 rounded-xl text-sm transition-colors duration-150 cursor-pointer ${
                             value === opt.value
                                 ? "bg-black text-white font-medium"
-                                : "text-black/60 hover:bg-black/[0.05] hover:text-black"
+                                : "text-black/60 hover:bg-black/5 hover:text-black"
                         }`}
                     >
                         {opt.label}

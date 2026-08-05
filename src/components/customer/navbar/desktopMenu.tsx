@@ -33,8 +33,8 @@ const DesktopMenu = () => {
         <span>Login</span>
 
         <svg id="Arrow - Right" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M19.75 11.7257L4.75 11.7257" stroke="#FFFFFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
-          <path d="M13.6997 5.70124C13.6997 5.70124 19.7497 8.96224 19.7497 11.7242C19.7497 14.4882 13.6997 17.7502 13.6997 17.7502" stroke="#FFFFFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
+          <path d="M19.75 11.7257L4.75 11.7257" stroke="#FAFAF9" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
+          <path d="M13.6997 5.70124C13.6997 5.70124 19.7497 8.96224 19.7497 11.7242C19.7497 14.4882 13.6997 17.7502 13.6997 17.7502" stroke="#FAFAF9" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
         </svg>
       </button>
 
