@@ -1,5 +1,8 @@
-import Link from "next/link";
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { BlurReveal } from "@/components/ui/blur-reveal";
 
 const products = [
@@ -30,6 +33,17 @@ const products = [
 ];
 
 const BestSeller = () => {
+    const router = useRouter();
+    const [isLoading, setIsLoading] = useState(false);
+
+    const goToMenu = () => {
+        setIsLoading(true);
+
+        setTimeout(() => {
+            router.push("/menu");
+        }, 1500); // durasi sama seperti loading di halaman login
+    };
+
     return (
         <section id="best-seller" className="relative bg-white text-black">
             <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
@@ -83,7 +97,8 @@ const BestSeller = () => {
 
                                 <button
                                     type="button"
-                                    className="mt-6 w-full border border-black py-2.5 text-xs tracking-[0.2em] uppercase transition-colors duration-300 hover:bg-black hover:text-white"
+                                    onClick={goToMenu}
+                                    className="mt-6 w-full border border-black py-2.5 text-xs tracking-[0.2em] uppercase transition-colors duration-300 hover:bg-black hover:text-white cursor-pointer"
                                 >
                                     View Menu
                                 </button>
@@ -94,14 +109,91 @@ const BestSeller = () => {
 
                 {/* View full menu */}
                 <div className="mt-16 flex justify-center">
-                    <Link
-                        href="/menu"
-                        className="border border-black px-8 py-3 text-xs tracking-[0.2em] uppercase transition-colors duration-300 hover:bg-black hover:text-white"
+                    <button
+                        type="button"
+                        onClick={goToMenu}
+                        className="border border-black px-8 py-3 text-xs tracking-[0.2em] uppercase transition-colors duration-300 hover:bg-black hover:text-white cursor-pointer"
                     >
                         View Full Menu
-                    </Link>
+                    </button>
                 </div>
             </div>
+
+            {/* Loading Overlay — sama persis dengan yang di halaman login */}
+            {isLoading && (
+                <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white/95 backdrop-blur-sm transition-opacity duration-300">
+                    <div className="relative flex flex-col items-center gap-8">
+
+                        {/* Dual-ring spinner with a breathing center dot */}
+                        <div className="relative h-16 w-16">
+                            <div className="absolute inset-0 rounded-full border-[3px] border-black/10" />
+                            <div className="spin-cw absolute inset-0 rounded-full border-[3px] border-transparent border-t-black border-r-black" />
+                            <div className="spin-ccw absolute inset-1.5 rounded-full border-2 border-transparent border-b-black/40" />
+                            <div className="absolute inset-0 flex items-center justify-center">
+                                <span className="pulse-dot h-2 w-2 rounded-full bg-black" />
+                            </div>
+                        </div>
+
+                        {/* Text */}
+                        <div className="flex flex-col items-center gap-2">
+                            <span className="text-[10px] tracking-[0.35em] uppercase text-black">
+                                Orvella
+                            </span>
+                        </div>
+
+                        {/* Indeterminate progress line */}
+                        <div className="h-px w-40 overflow-hidden bg-black/10">
+                            <div className="progress-slide h-full w-1/3 bg-black" />
+                        </div>
+                    </div>
+
+                    <style jsx>{`
+                        @keyframes spinCW {
+                            to {
+                                transform: rotate(360deg);
+                            }
+                        }
+                        .spin-cw {
+                            animation: spinCW 1s linear infinite;
+                        }
+
+                        @keyframes spinCCW {
+                            to {
+                                transform: rotate(-360deg);
+                            }
+                        }
+                        .spin-ccw {
+                            animation: spinCCW 1.6s linear infinite;
+                        }
+
+                        @keyframes pulseDot {
+                            0%, 100% {
+                                transform: scale(0.85);
+                                opacity: 0.6;
+                            }
+                            50% {
+                                transform: scale(1.25);
+                                opacity: 1;
+                            }
+                        }
+                        .pulse-dot {
+                            animation: pulseDot 1.1s ease-in-out infinite;
+                        }
+
+                        @keyframes progressSlide {
+                            0% {
+                                transform: translateX(-120%);
+                            }
+                            100% {
+                                transform: translateX(320%);
+                            }
+                        }
+                        .progress-slide {
+                            animation: progressSlide 2.4s cubic-bezier(0.45, 0, 0.15, 1) infinite;
+                        }
+                    `}</style>
+                </div>
+            )}
         </section>
     );
 };

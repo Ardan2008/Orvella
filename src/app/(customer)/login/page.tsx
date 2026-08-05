@@ -125,26 +125,23 @@ export default function LoginPage() {
             } else {
                 setShowErrorModal(true);
             }
-        }, 1500); // 1.5 seconds loading duration
+        }, 1500);
     };
 
-    // Continue as Customer — reuses the exact same lazy loading overlay
-    // as Sign In, then always navigates to "/" (no credentials to check).
     const handleContinueAsCustomer = () => {
         setIsLoading(true);
 
         setTimeout(() => {
-            router.push("/");
-        }, 1500); // same duration as the Sign In flow, for a consistent feel
+            router.push("/menu");
+        }, 1500);
     };
 
-    // Back to Site — same lazy loading overlay, always navigates to "/"
     const handleBackToSite = () => {
         setIsLoading(true);
 
         setTimeout(() => {
             router.push("/");
-        }, 1500); // same duration as other flows
+        }, 1500);
     };
 
     return (

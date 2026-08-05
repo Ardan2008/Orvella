@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import LanguageToggle from "./languageToggle";
 
 const DesktopMenu = () => {
   const router = useRouter();
@@ -16,6 +17,9 @@ const DesktopMenu = () => {
 
   return (
     <div className="hidden md:flex space-x-8 items-center">
+      {/* Language Toggle */}
+      <LanguageToggle />
+      
       <button
         type="button"
         onClick={handleLoginClick}

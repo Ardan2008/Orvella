@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import LanguageToggle from "./languageToggle";
 
 const MobileMenu = () => {
   const router = useRouter();
@@ -16,6 +17,9 @@ const MobileMenu = () => {
 
   return (
     <div className="md:hidden">
+      {/* Language Toggle */}
+      <LanguageToggle />
+      
       <button
         type="button"
         onClick={handleLoginClick}
