@@ -3,7 +3,7 @@ import { BlurReveal } from "@/components/ui/blur-reveal";
 
 const About = () => {
     return (
-        <section className="relative bg-white text-black overflow-hidden">
+        <section id="about" className="relative bg-white text-black overflow-hidden">
             <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
                 <div className="grid md:grid-cols-2 gap-16 md:gap-20 items-center">
 

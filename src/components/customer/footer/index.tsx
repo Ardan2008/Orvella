@@ -70,10 +70,10 @@ const Footer = () => {
                 </div>
 
                 {/* Info grid */}
-                <div className="grid gap-12 md:grid-cols-4 py-14">
+                <div className="grid gap-12 md:grid-cols-6 py-14">
 
                     {/* Brand */}
-                    <div>
+                    <div className="md:col-span-2">
                         <h3 className="font-serif text-2xl italic">Orvella</h3>
                         <p className="mt-4 text-sm text-black/70 leading-relaxed max-w-55">
                             From bean to cup, every detail is crafted so a
@@ -82,6 +82,35 @@ const Footer = () => {
                         <div className="mt-4 text-xs text-black/60">
                             <span>© {new Date().getFullYear()} Orvella Coffee. All rights reserved.</span>
                         </div>
+                    </div>
+
+                    {/* Quick Links */}
+                    <div>
+                        <h3 className="text-xs tracking-[0.3em] uppercase text-black">
+                            Explore
+                        </h3>
+                        <ul className="mt-5 space-y-3 text-sm text-black/80">
+                            <li>
+                                <a href="#about" className="hover:text-black transition-colors">
+                                    About
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#why-choose" className="hover:text-black transition-colors">
+                                    Why Choose Us
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#best-seller" className="hover:text-black transition-colors">
+                                    Best Seller
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#gallery" className="hover:text-black transition-colors">
+                                    Gallery
+                                </a>
+                            </li>
+                        </ul>
                     </div>
 
                     {/* Contact */}

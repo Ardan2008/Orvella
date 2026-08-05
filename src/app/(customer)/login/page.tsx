@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { User, Lock, Eye, EyeOff, ArrowLeft } from "lucide-react";
 
@@ -139,6 +138,15 @@ export default function LoginPage() {
         }, 1500); // same duration as the Sign In flow, for a consistent feel
     };
 
+    // Back to Site — same lazy loading overlay, always navigates to "/"
+    const handleBackToSite = () => {
+        setIsLoading(true);
+
+        setTimeout(() => {
+            router.push("/");
+        }, 1500); // same duration as other flows
+    };
+
     return (
         <main className="relative min-h-screen bg-white text-black md:grid md:grid-cols-2">
 
@@ -154,13 +162,14 @@ export default function LoginPage() {
                 <div className="absolute inset-0 bg-linear-to-t from-black via-black/40 to-black/10" />
 
                 <div className="relative flex h-full flex-col justify-between p-12">
-                    <Link
-                        href="/"
-                        className="inline-flex w-fit items-center gap-2 text-xs tracking-[0.25em] uppercase text-white/70 hover:text-white transition-colors"
+                    <button
+                        type="button"
+                        onClick={handleBackToSite}
+                        className="inline-flex w-fit items-center gap-2 text-xs tracking-[0.25em] uppercase text-white/70 hover:text-white transition-colors cursor-pointer"
                     >
                         <ArrowLeft strokeWidth={1.5} className="h-4 w-4" />
                         Back to site
-                    </Link>
+                    </button>
 
                     <div>
                         <span className="text-xs tracking-[0.3em] uppercase text-white/50">
@@ -178,13 +187,14 @@ export default function LoginPage() {
                 <div className="w-full max-w-sm">
 
                     {/* Mobile-only back link */}
-                    <Link
-                        href="/"
-                        className="mb-10 inline-flex items-center gap-2 text-xs tracking-[0.25em] uppercase text-black/40 hover:text-black transition-colors md:hidden"
+                    <button
+                        type="button"
+                        onClick={handleBackToSite}
+                        className="mb-10 inline-flex items-center gap-2 text-xs tracking-[0.25em] uppercase text-black/40 hover:text-black transition-colors md:hidden cursor-pointer"
                     >
                         <ArrowLeft strokeWidth={1.5} className="h-4 w-4" />
                         Back to site
-                    </Link>
+                    </button>
 
                     <h1 className="mt-4 font-serif text-4xl leading-tight">
                         Welcome

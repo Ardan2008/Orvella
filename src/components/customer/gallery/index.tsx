@@ -30,7 +30,7 @@ const items = [
 
 const Gallery = () => {
     return (
-        <section className="relative bg-white text-black">
+        <section id="gallery" className="relative bg-white text-black">
             <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
 
                 {/* Header */}
