@@ -13,9 +13,11 @@ const About = () => {
                             <Image
                                 src="/about/about.png"
                                 alt="Suasana Orvella Coffee"
-                                className="h-full w-full object-cover grayscale contrast-125 transition-all duration-500 ease-out group-hover:grayscale-0"
-                                width={1920}
-                                height={1080}
+                                className="h-full w-full object-cover"
+                                width={640}
+                                height={800}
+                                sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1200px) 50vw, 480px"
+                                loading="lazy"
                             />
                             <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-full" />
                         </div>

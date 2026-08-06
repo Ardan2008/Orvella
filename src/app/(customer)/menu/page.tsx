@@ -1,11 +1,12 @@
-import MenuNavbar from "@/components/customer/menu/menuNavbar";
-import MenuContent from "@/components/customer/menu/menuContent/menuContent";
+import Navbar from "@/components/customer/menu/menuNavbar";
+import MenuContent from "@/components/customer/menu/menuContent";
+import { MenuSearchProvider } from "@/context/menuSearchContext";
 
 export default function MenuPage() {
   return (
-    <>
-      <MenuNavbar />
+    <MenuSearchProvider>
+      <Navbar />
       <MenuContent />
-    </>
+    </MenuSearchProvider>
   );
 }

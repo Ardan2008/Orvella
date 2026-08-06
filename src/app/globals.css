@@ -163,3 +163,167 @@ html {
     @apply font-sans;
   }
 }
+
+/*
+  Animations moved here from `<style jsx>` blocks (styled-jsx) in:
+  - filterSidebar.tsx
+  - productCard.tsx
+  - productGrid.tsx
+
+  Reason: styled-jsx class-name hashes were mismatching between the
+  Turbopack dev server and the client (known Next.js + Turbopack bug),
+  causing hydration warnings. Plain global CSS avoids that entirely.
+*/
+@layer components {
+  /* filterSidebar.tsx */
+  @keyframes spinOnce {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(-720deg);
+    }
+  }
+  .spin-once {
+    animation: spinOnce 0.8s ease-in-out;
+  }
+
+  @keyframes rippleOut {
+    from {
+      transform: scale(1);
+      opacity: 0.6;
+    }
+    to {
+      transform: scale(1.9);
+      opacity: 0;
+    }
+  }
+  .ripple-ring {
+    animation: rippleOut 0.8s ease-out forwards;
+  }
+  .ripple-ring-delay {
+    animation-delay: 0.15s;
+  }
+
+  @keyframes filterBadgeIn {
+    from {
+      transform: scale(0);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  .filter-badge-in {
+    animation: filterBadgeIn 0.25s ease-out;
+  }
+
+  /* productCard.tsx */
+  @keyframes cardIn {
+    from {
+      opacity: 0;
+      transform: translateY(14px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  .card-in {
+    animation: cardIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  }
+
+  @keyframes stepperIn {
+    from {
+      opacity: 0;
+      transform: scale(0.85);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  .stepper-in {
+    animation: stepperIn 0.2s ease-out;
+  }
+
+  @keyframes bestSellerPulse {
+    0%,
+    100% {
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 0 0 rgba(0, 0, 0, 0.25);
+    }
+    50% {
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 0 5px rgba(0, 0, 0, 0);
+    }
+  }
+  .best-seller-pulse {
+    animation: bestSellerPulse 2.2s ease-in-out infinite;
+  }
+
+  /* productGrid.tsx */
+  @keyframes skeletonIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .skeleton-in {
+    animation: skeletonIn 0.3s ease-out backwards;
+  }
+
+  @keyframes skeletonPulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+  .skeleton-pulse {
+    animation: skeletonPulse 1.4s ease-in-out infinite;
+  }
+
+  @keyframes emptyIn {
+    from {
+      opacity: 0;
+      transform: scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  .empty-in {
+    animation: emptyIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* cartBar.tsx */
+  @keyframes cartBump {
+    0% {
+      transform: scale(1);
+    }
+    35% {
+      transform: scale(1.35);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  .cart-bump {
+    animation: cartBump 0.35s ease-out;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card-in,
+    .stepper-in,
+    .best-seller-pulse,
+    .empty-in,
+    .cart-bump {
+      animation: none;
+    }
+  }
+}

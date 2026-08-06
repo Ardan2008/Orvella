@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Check } from "lucide-react";
 
 export type SortValue = "recommended" | "price-asc" | "price-desc" | "rating-desc";
 
@@ -65,13 +65,16 @@ const SortDropdown = ({ value, onChange }: SortDropdownProps) => {
                             onChange(opt.value);
                             setOpen(false);
                         }}
-                        className={`w-full text-left px-3.5 py-2.5 rounded-xl text-sm transition-colors duration-150 cursor-pointer ${
+                        className={`flex w-full items-center justify-between text-left px-3.5 py-2.5 rounded-xl text-sm transition-colors duration-150 cursor-pointer ${
                             value === opt.value
                                 ? "bg-black text-white font-medium"
                                 : "text-black/60 hover:bg-black/5 hover:text-black"
                         }`}
                     >
                         {opt.label}
+                        {value === opt.value && (
+                            <Check strokeWidth={2} className="h-3.5 w-3.5" />
+                        )}
                     </button>
                 ))}
             </div>

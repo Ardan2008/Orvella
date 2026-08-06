@@ -58,7 +58,8 @@ const Gallery = () => {
                                 alt={title}
                                 fill
                                 sizes={sizes}
-                                className="object-cover grayscale contrast-125 transition-all duration-500 ease-out group-hover:grayscale-0 group-hover:scale-105"
+                                loading="lazy"
+                                className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                             />
                             <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/0 to-black/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                             <span className="absolute bottom-4 left-4 text-xs tracking-[0.2em] uppercase text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">

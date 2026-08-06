@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { RotateCcw } from "lucide-react";
+import { RotateCcw, Sparkles } from "lucide-react";
 import { ProductCategory } from "@/lib/data/products";
 
 const categories: { label: string; value: ProductCategory | "All" }[] = [
@@ -26,6 +26,10 @@ type FilterSidebarProps = {
     onCategoryChange: (category: ProductCategory | "All") => void;
     activePriceRange: PriceRangeValue;
     onPriceRangeChange: (range: PriceRangeValue) => void;
+    onlyTopRated: boolean;
+    onToggleTopRated: () => void;
+    categoryCounts: Partial<Record<ProductCategory | "All", number>>;
+    activeFilterCount: number;
     onReset: () => void;
 };
 
@@ -34,6 +38,10 @@ const FilterSidebar = ({
     onCategoryChange,
     activePriceRange,
     onPriceRangeChange,
+    onlyTopRated,
+    onToggleTopRated,
+    categoryCounts,
+    activeFilterCount,
     onReset,
 }: FilterSidebarProps) => {
     const [isSpinning, setIsSpinning] = useState(false);
@@ -46,13 +54,20 @@ const FilterSidebar = ({
 
     return (
         <aside className="w-full md:w-64 shrink-0">
-            <div className="md:sticky md:top-28 rounded-3xl border border-black/10 bg-white p-6 shadow-[0_4px_24px_rgba(0,0,0,0.04)]">
+            <div className="md:sticky md:top-6 rounded-3xl border border-black/10 bg-white p-6 shadow-[0_4px_24px_rgba(0,0,0,0.04)]">
 
                 {/* Header */}
                 <div className="flex items-center justify-between mb-7">
-                    <span className="font-serif text-lg italic text-black">
-                        Filter
-                    </span>
+                    <div className="flex items-center gap-2">
+                        <span className="font-serif text-lg italic text-black">
+                            Filter
+                        </span>
+                        {activeFilterCount > 0 && (
+                            <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-black px-1.5 text-[10px] font-medium text-white filter-badge-in">
+                                {activeFilterCount}
+                            </span>
+                        )}
+                    </div>
                     <button
                         type="button"
                         onClick={handleReset}
@@ -87,18 +102,28 @@ const FilterSidebar = ({
                     <div className="flex flex-wrap gap-2">
                         {categories.map((cat) => {
                             const isActive = activeCategory === cat.value;
+                            const count = categoryCounts[cat.value];
                             return (
                                 <button
                                     key={cat.value}
                                     type="button"
                                     onClick={() => onCategoryChange(cat.value)}
-                                    className={`px-3.5 py-2 rounded-full text-xs font-medium transition-all duration-200 cursor-pointer ${
+                                    className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-medium transition-all duration-200 cursor-pointer ${
                                         isActive
                                             ? "bg-black text-white shadow-sm"
                                             : "bg-black/3 text-black/60 hover:bg-black/[0.07] hover:text-black"
                                     }`}
                                 >
                                     {cat.label}
+                                    {typeof count === "number" && (
+                                        <span
+                                            className={`text-[10px] tabular-nums ${
+                                                isActive ? "text-white/60" : "text-black/30"
+                                            }`}
+                                        >
+                                            {count}
+                                        </span>
+                                    )}
                                 </button>
                             );
                         })}
@@ -133,38 +158,46 @@ const FilterSidebar = ({
                         })}
                     </div>
                 </div>
+
+                {/* Divider */}
+                <div className="h-px bg-black/6 my-7" />
+
+                {/* Top rated toggle */}
+                <div>
+                    <h3 className="text-[10px] font-medium tracking-[0.25em] uppercase text-black/35 mb-3">
+                        Rating
+                    </h3>
+                    <button
+                        type="button"
+                        onClick={onToggleTopRated}
+                        aria-pressed={onlyTopRated}
+                        className={`flex w-full items-center justify-between rounded-2xl border px-4 py-3 transition-all duration-200 cursor-pointer ${
+                            onlyTopRated
+                                ? "border-black/50 bg-black/5"
+                                : "border-black/8 bg-black/1.5 hover:bg-black/3"
+                        }`}
+                    >
+                        <span className="flex items-center gap-2 text-xs font-medium text-black/70">
+                            <Sparkles
+                                strokeWidth={1.5}
+                                className={`h-3.5 w-3.5 ${onlyTopRated ? "text-black" : "text-black/30"}`}
+                            />
+                            4.5+ only
+                        </span>
+                        <span
+                            className={`relative inline-flex h-5 w-9 shrink-0 items-center rounded-full transition-colors duration-300 ease-out ${
+                                onlyTopRated ? "bg-black" : "bg-black/15"
+                            }`}
+                        >
+                            <span
+                                className={`absolute left-0.5 h-4 w-4 rounded-full bg-[#FAFAF9] shadow-sm transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
+                                    onlyTopRated ? "translate-x-4" : "translate-x-0"
+                                }`}
+                            />
+                        </span>
+                    </button>
+                </div>
             </div>
-
-            <style jsx>{`
-                @keyframes spinOnce {
-                    from {
-                        transform: rotate(0deg);
-                    }
-                    to {
-                        transform: rotate(-720deg);
-                    }
-                }
-                .spin-once {
-                    animation: spinOnce 0.8s ease-in-out;
-                }
-
-                @keyframes rippleOut {
-                    from {
-                        transform: scale(1);
-                        opacity: 0.6;
-                    }
-                    to {
-                        transform: scale(1.9);
-                        opacity: 0;
-                    }
-                }
-                .ripple-ring {
-                    animation: rippleOut 0.8s ease-out forwards;
-                }
-                .ripple-ring-delay {
-                    animation-delay: 0.15s;
-                }
-            `}</style>
         </aside>
     );
 };

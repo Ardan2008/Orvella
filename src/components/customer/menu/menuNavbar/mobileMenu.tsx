@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import LanguageToggle from "./languageToggle";
+import { useMenuSearch } from "@/context/menuSearchContext";
 
 const SearchIcon = ({ className }: { className?: string }) => (
   <svg width="18" height="18" viewBox="0 0 24 24" className={className} xmlns="http://www.w3.org/2000/svg">
@@ -24,6 +25,7 @@ const CartIcon = ({ className }: { className?: string }) => (
 );
 
 const MobileMenu = () => {
+  const { query, setQuery } = useMenuSearch();
   const [mounted, setMounted] = useState(false);
   const [visible, setVisible] = useState(false);
 
@@ -82,6 +84,8 @@ const MobileMenu = () => {
             <SearchIcon className="h-4 w-4 text-black/40 shrink-0 transition-colors duration-300 group-focus-within:text-black" />
             <input
               type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
               placeholder="Search menu..."
               autoFocus={visible}
               className="w-full bg-transparent text-sm text-black placeholder:text-black/40 focus:outline-none"

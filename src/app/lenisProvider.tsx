@@ -10,15 +10,16 @@ const ReactLenis = dynamic(
 
 export default function LenisProvider({ children }: { children: ReactNode }) {
   return (
-    <ReactLenis
-      root
-      options={{
-        duration: 1.5,
-        easing: (t: number) => Math.sqrt(1 - Math.pow(t - 1, 2)),
-        smoothWheel: true,
-      }}
-    >
+    <>
+      <ReactLenis
+        root
+        options={{
+          duration: 1.5,
+          easing: (t: number) => Math.sqrt(1 - Math.pow(t - 1, 2)),
+          smoothWheel: true,
+        }}
+      />
       {children}
-    </ReactLenis>
+    </>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import LanguageToggle from "./languageToggle";
+import { useMenuSearch } from "@/context/menuSearchContext";
 
 const SearchIcon = ({ className }: { className?: string }) => (
   <svg width="18" height="18" viewBox="0 0 24 24" className={className} xmlns="http://www.w3.org/2000/svg">
@@ -23,6 +24,8 @@ const CartIcon = ({ className }: { className?: string }) => (
 );
 
 const DekstopMenu = () => {
+  const { query, setQuery } = useMenuSearch();
+
   return (
     <div className="hidden md:flex w-full items-center justify-between gap-6">
 
@@ -31,6 +34,8 @@ const DekstopMenu = () => {
         <SearchIcon className="h-4 w-4 text-black/40 shrink-0 transition-colors duration-300 group-focus-within:text-black" />
         <input
           type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
           placeholder="Search menu..."
           className="w-full bg-transparent text-sm text-black placeholder:text-black/40 focus:outline-none"
         />

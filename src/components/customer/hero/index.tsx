@@ -46,6 +46,7 @@ const Hero = () => {
                         alt={PRODUCT_IMAGE_ALT}
                         width={900}
                         height={1125}
+                        sizes="(max-width: 640px) 280px, (max-width: 768px) 360px, (max-width: 1024px) 440px, 520px"
                         className="object-contain drop-shadow-2xl w-70 sm:w-90 md:w-110 lg:w-130 h-auto"
                         priority
                     />
